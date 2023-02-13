@@ -1,0 +1,14 @@
+[
+    {
+        "director":"Tomas",
+        "idDirector":"1"
+    },
+    {
+        "director":"Santiago",
+        "idDirector":"2"
+    },
+    {
+        "director":"Fulano",
+        "idDirector":"3"
+    }
+]

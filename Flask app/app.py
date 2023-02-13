@@ -1,7 +1,6 @@
 from flask import Flask, jsonify
 import json
 import requests as rq
-from os import system
 
 
 
@@ -31,5 +30,5 @@ def pelis():
 if __name__ == '__main__':
     app.run(debug=True)
     
-peliculas.text 
+
     
