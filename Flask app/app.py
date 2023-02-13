@@ -1,6 +1,8 @@
-from flask import Flask
-from flask import jsonify
+from flask import Flask, jsonify
 import json
+import requests as rq
+from os import system
+
 
 
 app=Flask(__name__)
@@ -22,10 +24,12 @@ def pelis():
     with open('peliculas.json', 'r') as basePeliculas:
         peli = json.load(basePeliculas)
         print('funciono')
-        return peli    
+        return peli   
     
 
-
+    
 if __name__ == '__main__':
     app.run(debug=True)
+    
+peliculas.text 
     
