@@ -38,6 +38,20 @@ def getGeneros():
         generos = json.load(datosGeneros)
     return jsonify(generos)
         
+ 
+@app.route("/pelis") 
+def getPelis():
+    with open('peliculas.json', 'r') as datosPeliculas:
+        peliculas = json.load(datosPeliculas)
+    return jsonify(peliculas)
+
+@app.route("/directores")
+def getDirec():
+    with open('directores.json', 'r') as datosDirectores:
+        directores = json.load(datosDirectores)
+    return jsonify(directores)
+
+
         
 if __name__ == '__main__':
     app.run(debug=True)
