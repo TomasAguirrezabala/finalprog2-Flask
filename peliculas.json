@@ -1,14 +1,14 @@
 [
     {
         "nombre": "el senior de los anillos", 
-        "director": "tomas", 
+        "directorID": "1", 
         "generoPeli":"accion",
         "anio": 1999, 
         "id": 1
     }, 
     {
         "nombre": "batman", 
-        "director": "tomas", 
+        "directorID": "1", 
         "generoPeli":"terror",
         "anio": "2013", 
         "id": 2
