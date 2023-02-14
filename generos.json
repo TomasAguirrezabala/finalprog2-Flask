@@ -1,0 +1,18 @@
+[
+   {
+        "generoNombre":"accion",
+        "idgenero":"1"
+    },
+   {
+        "generoNombre":"terror",
+        "idgenero":"2"
+    },
+   {
+        "generoNombre":"comedia",
+        "idgenero":"3"
+    },
+   {
+        "generoNombre":"romance",
+        "idgenero":"4"
+    }
+]    

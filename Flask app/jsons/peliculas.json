@@ -1,1 +1,17 @@
-[{"nombre": "el senior de los anillos", "director": "tomas", "anio": 1999, "id": 1}, {"nombre": "batman", "director": "tomas", "anio": "2013", "id": 2}]
+[
+    {
+        "nombre": "el senior de los anillos", 
+        "director": "tomas", 
+        "generoPeli":"accion",
+        "anio": 1999, 
+        "id": 1
+    }, 
+    {
+        "nombre": "batman", 
+        "director": "tomas", 
+        "generoPeli":"terror",
+        "anio": "2013", 
+        "id": 2
+    }
+
+]
