@@ -29,10 +29,6 @@ def getDirec():
         directores = json.load(datosDirectores)
     return jsonify(directores)
 
-@app.route("/directores/{idDirectores}/peliculas")
-def buenas():
-    return 0
-
 @app.route("/peliculas/director/<id>")
 def getPeliculasDirector(id):
     with open('peliculas.json', 'r') as datosPeliculas:
