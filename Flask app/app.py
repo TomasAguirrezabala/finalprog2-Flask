@@ -43,6 +43,26 @@ def getPeliculasDirector(id):
         return "director no encontrado"
     else:
         return jsonify(peliculasDirector)
+    
+@app.route("/peliculas/portada")
+def getPeliculasImagen():
+    with open('peliculas.json','r') as peliculasImagenData:
+        peliculasImagen = json.load(peliculasImagenData)
+
+    peliculasConImagen = []
+    
+    for peliculaImagen in peliculasImagen:
+        if peliculaImagen["portada"] == " ":
+            # no tiene portada
+            continue
+        else:
+            peliculasConImagen.append(peliculaImagen)
+            
+    if len(peliculasConImagen) == 0:
+        return("Esas peliculas no tienen portada")
+    else:
+        return peliculasConImagen         
+    
         
 if __name__ == '__main__':
     app.run(debug=True)

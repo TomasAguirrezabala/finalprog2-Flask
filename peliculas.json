@@ -3,15 +3,25 @@
         "nombre": "el senior de los anillos", 
         "directorID": "1", 
         "generoPeli":"accion",
-        "anio": 1999, 
-        "id": 1
+        "anio": "1999", 
+        "id": 1,
+        "portada":" "
     }, 
     {
         "nombre": "batman", 
         "directorID": "1", 
         "generoPeli":"terror",
         "anio": "2013", 
-        "id": 2
+        "id": 2,
+        "portada":"asd"
+    },
+    {
+        "nombre": "El Guason",
+        "directorID": "2",
+        "generoPeli": "accion",
+        "anio": "2010",
+        "id": 3,
+        "portada":"asddd"
     }
 
 ]
