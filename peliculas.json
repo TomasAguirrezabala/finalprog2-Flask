@@ -5,7 +5,8 @@
         "generoPeli":"accion",
         "anio": "1999", 
         "id": 1,
-        "portada":" "
+        "portada":" ",
+        "sinopsis": ""
     }, 
     {
         "nombre": "batman", 
@@ -13,7 +14,8 @@
         "generoPeli":"terror",
         "anio": "2013", 
         "id": 2,
-        "portada":"asd"
+        "portada":"asd",
+        "sinopsis": "heroe"
     },
     {
         "nombre": "El Guason",
@@ -21,7 +23,8 @@
         "generoPeli": "accion",
         "anio": "2010",
         "id": 3,
-        "portada":"asddd"
+        "portada":"asddd",
+        "sinopsis": "villano"
     }
 
 ]
