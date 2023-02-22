@@ -1,6 +1,6 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, Response, request
 import json
-
+import requests as rq
 
 app=Flask(__name__)
 
@@ -62,7 +62,27 @@ def getPeliculasImagen():
         return("Esas peliculas no tienen portada")
     else:
         return peliculasConImagen         
-    
+
+def nuevaIdPeliculas():
+    with open('peliculas.json', 'r') as datosPeliculas:
+        peliculas = json.load(datosPeliculas)
+    return str(int(peliculas[-1]["id"]) + 1)
+
+@app.route('/peliculas/agregar', methods=['POST'])
+def postPeliNueva():
+    peliAgregar = request.get_json()  
+    id = nuevaIdPeliculas()
+
+    peliAgregar["id"] = id
+    with open('peliculas.json', 'r') as datosPeliculas:
+        peliculas = json.load(datosPeliculas)
+    peliculas.append(peliAgregar)
+
+    #Actualizando JSONs
+    with open('peliculas.json', 'w') as datosPeliculas:
+        json.dump(peliculas, datosPeliculas)
+
+    return 'Pelicula registrada correctamente.' 
         
 if __name__ == '__main__':
     app.run(debug=True)
