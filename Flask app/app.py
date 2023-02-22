@@ -5,10 +5,13 @@ import requests as rq
 app=Flask(__name__)
 
 
-# # esto crea los jsons
-# with open('peliculas.json', 'w') as datosPeliculas:
-#     json.dump( peliculas, datosPeliculas)
-#     print(datosPeliculas)
+
+@app.route("/comentarios")
+def getComentarios():
+    with open('comentarios.json', 'r') as datosComentarios:
+        comentarios = json.load(datosComentarios)
+    return jsonify(comentarios)
+
 
 @app.route("/generos")
 def getGeneros():
@@ -82,7 +85,42 @@ def postPeliNueva():
     with open('peliculas.json', 'w') as datosPeliculas:
         json.dump(peliculas, datosPeliculas)
 
-    return 'Pelicula registrada correctamente.' 
+    return 'Pelicula registrada.' 
+
+
+@app.route("/peliculas/<id>/UsuarioID/<UsuarioID>/eliminar", methods=['DELETE'])
+def deletePelicula(id, idUsuario):
+    with open('peliculas.json', 'r') as datosPeliculas:
+        peliculas = json.load(datosPeliculas)
+    comentarios = fc.obtenerComentarios()
+    comentariosOtrosUsuarios = False
+    valor = {}
+
+    for pelicula in peliculas:
+        if pelicula["id"] == id:
+            for comentarioRecorrido in pelicula["idComentarios"]:
+                for comentario in comentarios:
+                    if comentarioRecorrido == comentario["id"]  and comentario["idUsuario"] != idUsuario:
+                        comentariosOtrosUsuarios = True
+        if comentariosOtrosUsuarios == False and pelicula["id"] == id:
+            valor = pelicula 
+            for peliculaIdComentarios in valor["idComentarios"]:
+                for comentario in comentarios:
+                    if comentario['id'] == peliculaIdComentarios:
+                        comentarios.remove(comentario)
+
+    if comentariosOtrosUsuarios == True:
+        return 'Borrado no exitoso, tiene comentarios de otros usuarios o no se pudo eliminar correctamente'
+    else:
+        peliculas.remove(valor)
+        #Actualizando JSONs
+        with open('jsons/peliculas.json', 'w') as archivoJson:
+            json.dump(peliculas, archivoJson, indent=4)
+        with open('jsons/comentarios.json', 'w') as archivoJson:
+            json.dump(comentarios, archivoJson, indent=4)
+        return 'Borrado exitoso'
+
+
         
 if __name__ == '__main__':
     app.run(debug=True)
