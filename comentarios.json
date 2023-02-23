@@ -8,5 +8,25 @@
         "comentarioID": "3",
         "usuarioID": "3",
         "comentario": "Muy buena peli"
+    },
+    {
+        "comentarioID": "4",
+        "usuarioID": "1",
+        "comentario": "Mala peli"
+    },
+    {
+        "comentarioID": "5",
+        "usuarioID": "1",
+        "comentario": "Mala peli"
+    },
+    {
+        "comentarioID": "7",
+        "usuarioID": "1",
+        "comentario": "Mala peli"
+    },
+    {
+        "comentarioID": "8",
+        "usuarioID": "1",
+        "comentario": "Mala peli"
     }
 ]

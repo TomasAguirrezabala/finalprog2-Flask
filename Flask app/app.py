@@ -76,7 +76,7 @@ def postPeliNueva():
     peliAgregar = request.get_json()  
     id = nuevaIdPeliculas()
 
-    peliAgregar["peiculaID"] = id
+    peliAgregar["peliculaID"] = id
     with open('peliculas.json', 'r') as datosPeliculas:
         peliculas = json.load(datosPeliculas)
     peliculas.append(peliAgregar)
@@ -95,53 +95,35 @@ def deletePelicula(peliculaID, usuarioID):
     with open('comentarios.json', 'r') as datosComentarios:
         comentarios = json.load(datosComentarios)
     
-    sePuedeBorrar = False
     
     for pelicula in peliculas:
         if pelicula["peliculaID"] == peliculaID:
-            # return pelicula["peliculaID"]
-            # la peli existe
             for idComentarioPeli in pelicula["comentariosID"]:
-                if idComentarioPeli == "":
-                    texto = "esta vacio"
-                    return jsonify(texto)
-                # if idComentarioPeli != "":
-                # # tiene comentarios, hay que ver si le pertenecen
-                #     for comentario in comentarios:
-                #         print(comentario)
-                #         # si le pertenece el comentario, borramos igual
-                #         if comentario["usuarioID"] == usuarioID:
-                #             peliculas.remove(pelicula)
-                #             with open('peliculas.json', 'w') as archivoJson:
-                #                 json.dump(peliculas, archivoJson, indent=4)
-                #             comentarios.remove(comentario)
-                #             with open('comentarios.json', 'w') as archivoJson:
-                #                 json.dump(comentarios, archivoJson, indent=4)
-                #             return "Pelicula y comentario eliminados"
-                # # no tiene comentarios
-                # else:
-                #     peliculas.remove(pelicula)
-                #     with open('peliculas.json', 'w') as archivoJson:
-                #         json.dump(peliculas, archivoJson, indent=4)
-    
-    
-    
-    #                     # si no le pertenece, no borramos
-    #                     else:
-    #                         sePuedeBorrar = False
-    #             # no tiene comentarios
-    #             else:
-    #                 sePuedeBorrar=True
-    # if sePuedeBorrar == True:
-    #     peliculas.remove(pelicula)
-    #     with open('jsons/peliculas.json', 'w') as archivoJson:
-    #         json.dump(peliculas, archivoJson, indent=4)
-    #     with open('jsons/comentarios.json', 'w') as archivoJson:
-    #         json.dump(comentarios, archivoJson, indent=4)
-    # else:
-    #     return "La pelicula tiene comentarios que no te pertenecen, o no existe."      
-
-
+                if idComentarioPeli != "0":
+                # tiene comentarios, hay que ver si le pertenecen
+                    for comentario in comentarios:
+                        if comentario["comentarioID"] == idComentarioPeli:
+                        # si le pertenece el comentario, borramos igual
+                            if comentario["usuarioID"] == usuarioID:
+                                comentarios.remove(comentario)
+                                with open('comentarios.json', 'w') as archivoJson:
+                                    json.dump(comentarios, archivoJson, indent=4) 
+                                borrar = True
+                                break     
+                            # tiene comentarios pero no le pertenecen
+                            else:
+                                return "La pelicula tiene comentarios que no te pertenecen, no puede ser eliminada"
+                # no tiene comentarios
+                else:
+                    borrar = True 
+            if borrar == True:
+                peliculas.remove(pelicula)
+                with open('peliculas.json', 'w') as archivoJson:
+                    json.dump(peliculas, archivoJson, indent=4)
+                return "Pelicula eliminada con exito"
+            else:
+                return "La pelicula tiene comentarios que no te pertenecen o no puede ser eliminada"
+    return "Pelicula no encontrada"
         
 if __name__ == '__main__':
     app.run(debug=True)
