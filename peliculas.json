@@ -1,1 +1,52 @@
-[{"nombre": "el gato con botas", "directorID": "1", "generoPeli": "accion", "anio": "1999", "id": 1, "portada": " ", "sinopsis": ""}, {"nombre": "batman", "directorID": "1", "generoPeli": "terror", "anio": "2013", "id": 2, "portada": "asd", "sinopsis": "heroe"}, {"nombre": "El Guason", "directorID": "2", "generoPeli": "accion", "anio": "2010", "id": 3, "portada": "asddd", "sinopsis": "villano"}, {"nombre": "tomas", "directorID": "1", "generoPeli": "accion", "anio": "2002", "id": "4", "portada": "sadasdas", "sinopsis": "alto capo"}]
+[
+    {
+        "nombre": "El Guason",
+        "directorID": "2",
+        "generoPeli": "accion",
+        "anio": "2010",
+        "peliculaID": "3",
+        "portada": "asddd",
+        "sinopsis": "villano",
+        "comentariosID": ""
+    },
+    {
+        "nombre": "tomas 1",
+        "directorID": "1",
+        "generoPeli": "accion",
+        "anio": "2002",
+        "peliculaID": "4",
+        "portada": "asdsadas",
+        "sinopsis": "alto capo",
+        "comentariosID": ""
+    },
+    {
+        "nombre": "tomas 2",
+        "directorID": "1",
+        "generoPeli": "terror",
+        "anio": "2011",
+        "peliculaID": "5",
+        "portada": "sdasdasd",
+        "sinopsis": "adsada",
+        "comentariosID": ""
+    },
+    {
+        "nombre": "tomas 3",
+        "directorID": "1",
+        "generoPeli": "terror",
+        "anio": "2020",
+        "peliculaID": "6",
+        "portada": "asdasdasd",
+        "sinopsis": "dasdas",
+        "comentariosID": ""
+    },
+    {
+        "nombre": "tomas 4",
+        "directorID": "1",
+        "generoPeli": "comedia",
+        "anio": "2023",
+        "peliculaID": "7",
+        "portada": "asdasdas",
+        "sinopsis": "dasd",
+        "comentariosID": "1"
+    }
+]
