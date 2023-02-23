@@ -19,7 +19,7 @@ def getGeneros():
         generos = json.load(datosGeneros)
     return jsonify(generos)
         
- 
+
 @app.route("/pelis") 
 def getPelis():
     with open('peliculas.json', 'r') as datosPeliculas:
@@ -87,7 +87,47 @@ def postPeliNueva():
 
     return 'Pelicula registrada.' 
 
+@app.route("/ultimas_diez_peliculas")
+def get_ultimas_diez_peliculas():
+    contador = 0
+    with open('peliculas.json', 'r') as datos_diez_peliculas:
+        diez_pelis = json.load(datos_diez_peliculas)
+    ultimas_diez_peliculas = []
+    for pelicula in reversed(diez_pelis):
+        contador = contador + 1
+        ultimas_diez_peliculas.append(pelicula)
+        if contador == 10:
+            break
+    return jsonify(ultimas_diez_peliculas)
 
+@app.route("/peliculas/modif/", methods=['PUT'])
+def modifPelicula():
+    with open('peliculas.json', 'r') as datosPeliculas:
+        peliculas = json.load(datosPeliculas)
+
+    modificaciones_pelicula = request.get_json()
+
+    for pelicula in peliculas:
+        if pelicula["id"] == modificaciones_pelicula["id"]:
+            if modificaciones_pelicula["nombre"] != '':
+                pelicula["nombre"] = modificaciones_pelicula["nombre"]
+            elif modificaciones_pelicula["directorID"] != '':
+                pelicula["directorID"] = modificaciones_pelicula["directorID"]
+            elif modificaciones_pelicula["generoPeli"] != '':
+                pelicula["generoPeli"] = modificaciones_pelicula["generoPeli"]
+            elif modificaciones_pelicula["anio"] != '':
+                pelicula["anio"] = modificaciones_pelicula["anio"]
+            elif modificaciones_pelicula["sinopsis"] != '':
+                pelicula["sinopsis"] = modificaciones_pelicula["sinopsis"]
+            elif modificaciones_pelicula["portada"] != '':
+                pelicula["portada"] = modificaciones_pelicula["portada"]
+                {"nombre": "", "directorID": "", "generoPeli": "", "anio": "", "id": "", "portada": "", "sinopsis": ""}
+
+    #Actualizando JSONs
+    with open('peliculas.json', 'w') as archivoJson:
+        json.dump(peliculas, archivoJson)
+
+        
 @app.route("/peliculas/<peliculaID>/usuarioID/<usuarioID>/eliminar", methods=['DELETE'])
 def deletePelicula(peliculaID, usuarioID):
     with open('peliculas.json', 'r') as datosPeliculas:
