@@ -1,12 +1,4 @@
-[
-    {
-        "nombre": "tomas 3",
-        "directorID": "1",
-        "generoPeli": "accion",
-        "anio": "2020",
-        "peliculaID": "3",
-        "portada": "asdasdasd",
-        "sinopsis": "asdas",
-        "comentariosID": "2"
-    }
-]
+[{"nombre": "el senior de los anillos", "directorID": "1", "generoPeli": "accion", "anio": "1999", "id": 1, "portada": " ", "sinopsis": ""},
+    {"nombre": "batman", "directorID": "1", "generoPeli": "terror", "anio": "2013", "id": 2, "portada": "asd", "sinopsis": "heroe"},
+    {"nombre": "El Guason", "directorID": "2", "generoPeli": "accion", "anio": "2010", "id": 3, "portada": "asddd", "sinopsis": "villano"},
+    {"nombre": "tomas", "directorID": "1", "generoPeli": "accion", "anio": "2002", "id": 4, "portada": "sadasdas", "sinopsis": "alto capo"}]

@@ -81,7 +81,6 @@ def postPeliNueva():
         peliculas = json.load(datosPeliculas)
     peliculas.append(peliAgregar)
 
-    #Actualizando JSONs
     with open('peliculas.json', 'w') as datosPeliculas:
         json.dump(peliculas, datosPeliculas, indent=4)
 
@@ -123,7 +122,6 @@ def modifPelicula():
                 pelicula["portada"] = modificaciones_pelicula["portada"]
                 {"nombre": "", "directorID": "", "generoPeli": "", "anio": "", "id": "", "portada": "", "sinopsis": ""}
 
-    #Actualizando JSONs
     with open('peliculas.json', 'w') as archivoJson:
         json.dump(peliculas, archivoJson)
 
