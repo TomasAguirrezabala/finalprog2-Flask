@@ -1,11 +1,11 @@
 [
     {
-      "usuario":"Tomas",
+      "usuario":"tomas",
       "contrasena":"123",
       "idUsuario":"1"  
     },
     {
-        "usuario":"Santiago",
+        "usuario":"santiago",
         "contrasena":"123",
         "idUsuario":"2"
     }
