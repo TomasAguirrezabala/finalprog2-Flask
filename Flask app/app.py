@@ -32,6 +32,12 @@ def getDirec():
         directores = json.load(datosDirectores)
     return jsonify(directores)
 
+@app.route('/usuarios')
+def getUsuarios():
+    with open('usuarios.json', 'r') as datosUsuarios:
+        usuarios = json.load(datosUsuarios)
+    return jsonify(usuarios)
+
 @app.route("/peliculas/director/<id>")
 def getPeliculasDirector(id):
     with open('peliculas.json', 'r') as datosPeliculas:
@@ -162,7 +168,8 @@ def deletePelicula(peliculaID, usuarioID):
             else:
                 return "La pelicula tiene comentarios que no te pertenecen o no puede ser eliminada"
     return "Pelicula no encontrada"
-        
+
+
 if __name__ == '__main__':
     app.run(debug=True)
     
