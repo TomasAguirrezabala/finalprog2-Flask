@@ -1,4 +1,52 @@
-[{"nombre": "el senior de los anillos", "directorID": "1", "generoPeli": "accion", "anio": "1999", "id": 1, "portada": " ", "sinopsis": ""},
-    {"nombre": "batman", "directorID": "1", "generoPeli": "terror", "anio": "2013", "id": 2, "portada": "asd", "sinopsis": "heroe"},
-    {"nombre": "El Guason", "directorID": "2", "generoPeli": "accion", "anio": "2010", "id": 3, "portada": "asddd", "sinopsis": "villano"},
-    {"nombre": "tomas", "directorID": "1", "generoPeli": "accion", "anio": "2002", "id": 4, "portada": "sadasdas", "sinopsis": "alto capo"}]
+[
+    {
+        "nombre": "el senior de los anillos",
+        "directorID": "1",
+        "generoPeli": "accion",
+        "anio": "1999",
+        "peliculaID": "1",
+        "portada": " ",
+        "sinopsis": ""
+        ,"comentariosID": "0"
+    },
+    {
+        "nombre": "batman",
+        "directorID": "1",
+        "generoPeli": "terror",
+        "anio": "2013",
+        "peliculaID": "2",
+        "portada": "asd",
+        "sinopsis": "heroe"
+        ,"comentariosID": "1"
+    },
+    {
+        "nombre": "El Guason",
+        "directorID": "2",
+        "generoPeli": "accion",
+        "anio": "2010",
+        "peliculaID": "3",
+        "portada": "asddd",
+        "sinopsis": "villano"
+        ,"comentariosID": "2"
+    },
+    {
+        "nombre": "tomas",
+        "directorID": "1",
+        "generoPeli": "accion",
+        "anio": "2002",
+        "peliculaID": "4",
+        "portada": "sadasdas",
+        "sinopsis": "alto capo"
+        ,"comentariosID": "3"
+    },
+    {
+        "nombre": "tomas 2",
+        "directorID": "1",
+        "generoPeli": "accion",
+        "anio": "2012",
+        "peliculaID": "5",
+        "portada": "asdsadasd",
+        "sinopsis": "alto capo x2"
+        ,"comentariosID": "4"
+    }
+]
