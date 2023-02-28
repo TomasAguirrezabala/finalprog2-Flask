@@ -139,27 +139,32 @@ def borrarPeli(peliculaID, usuarioID):
     with open('comentarios.json', 'r') as datosComentarios:
         comentarios = json.load(datosComentarios)
     
-    
+    borrar = False
     for pelicula in peliculas:
         if pelicula["peliculaID"] == peliculaID:
-            for idComentarioPeli in pelicula["comentariosID"]:
-                if idComentarioPeli != "0":
+            if len(pelicula["comentariosID"]) != 0:
                 # tiene comentarios, hay que ver si le pertenecen
-                    for comentario in comentarios:
-                        if comentario["comentarioID"] == idComentarioPeli:
-                        # si le pertenece el comentario, borramos igual
-                            if comentario["usuarioID"] == usuarioID:
-                                comentarios.remove(comentario)
-                                with open('comentarios.json', 'w') as archivoJson:
-                                    json.dump(comentarios, archivoJson, indent=4) 
-                                borrar = True
-                                break     
-                            # tiene comentarios pero no le pertenecen
-                            else:
-                                return "La pelicula tiene comentarios que no te pertenecen, no puede ser eliminada"
-                # no tiene comentarios
-                else:
-                    borrar = True 
+                for listaIDsComentarioPeli in pelicula["comentariosID"]:
+                    print("aca entro")
+                    for idComentarioPeli in listaIDsComentarioPeli:
+                        print(idComentarioPeli)
+                        # tiene comentarios, hay que ver si le pertenecen
+                        for comentario in comentarios:
+                            if comentario["comentarioID"] == idComentarioPeli:
+                                print("entro aca")
+                            # si le pertenece el comentario, borramos igual
+                                if comentario["usuarioID"] == usuarioID:
+                                    borrar = True
+                                    comentarios.remove(comentario)
+                                    with open('comentarios.json', 'w') as archivoJson:
+                                        json.dump(comentarios, archivoJson, indent=4) 
+                                    break     
+                                # tiene comentarios pero no le pertenecen
+                                else:
+                                    return "La pelicula tiene comentarios que no te pertenecen, no puede ser eliminada"
+            # no tiene comentarios
+            else:
+                borrar = True 
             if borrar == True:
                 peliculas.remove(pelicula)
                 with open('peliculas.json', 'w') as archivoJson:
@@ -241,22 +246,22 @@ def getComentariosUsuarioID(usuarioID):
     return jsonify(listaComentariosUsuarioID)
 
 
-# @app.route("/comentario/save", methods=['PUT'])
-# def modifComentario():
-#     #Obteneniendo JSONs
-#     comentarios = fc.obtenerComentarios()
+@app.route("/comentarios/modificar", methods=['PUT'])
+def modificarComentario():
+    with open('comentarios.json', 'r') as comentariosData:
+        comentarios = json.load(comentariosData)
+
     
-#     comentarioNuevoLista = request.get_json()
+    comenModificado = request.get_json()
 
-#     for comentario in comentarios:
-#         if comentario['id'] == comentarioNuevoLista['id'] and comentario['idUsuario'] == comentarioNuevoLista['idUsuario']:
-#             comentario['comentario'] = comentarioNuevoLista['comentario']
+    for comentario in comentarios:
+        if comentario['comentarioID'] == comenModificado['comentarioID'] and comentario['usuarioID'] == comenModificado['usuarioID']:
+            comentario['comentario'] = comenModificado['comentario']
 
-#     #Actulizando JSONs
-#     with open('jsons/comentarios.json', 'w') as archivoJson:
-#         json.dump(comentarios, archivoJson, indent=4)
+    with open('comentarios.json', 'w') as comenModificadoData:
+        json.dump(comentarios, comenModificadoData, indent=4)
 
-#     return 'Modificacion con exito'
+    return "El comentario fue editado con exito!"
 
 # @app.route("/peliculas/<idPelicula>/comentarios/")
 # def getComentarios(idPelicula):

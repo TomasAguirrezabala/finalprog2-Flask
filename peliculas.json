@@ -8,11 +8,11 @@
         "portada": " ",
         "sinopsis": "",
         "comentariosID": [
-            "9",
             "1",
             "2",
             "3",
-            "4","11"
+            "4",
+            "11"
         ]
     },
     {
@@ -57,6 +57,23 @@
         "peliculaID": "5",
         "portada": "asdsadasd",
         "sinopsis": "alto capo x2",
-        "comentariosID": []
+        "comentariosID": [
+            "5",
+            "2",
+            "1",
+            "12"
+        ]
+    },
+    {
+        "nombre": "prueba definitiva 1",
+        "directorID": "1",
+        "generoPeli": "accion",
+        "anio": "2023",
+        "peliculaID": "6",
+        "portada": "sdaadasd",
+        "sinopsis": "si esto se agrega bien, queda listo",
+        "comentariosID": [
+            "5"
+        ]
     }
 ]
