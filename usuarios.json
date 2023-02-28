@@ -2,11 +2,11 @@
     {
       "usuario":"tomas",
       "contrasena":"123",
-      "idUsuario":"1"  
+      "usuarioID":"1"  
     },
     {
         "usuario":"santiago",
         "contrasena":"123",
-        "idUsuario":"2"
+        "usuarioID":"2"
     }
 ]

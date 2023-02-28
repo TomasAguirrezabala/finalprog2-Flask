@@ -38,5 +38,20 @@
         "comentarioID": "8",
         "usuarioID": "1",
         "comentario": "Mala peli"
+    },
+    {
+        "comentarioID": "9",
+        "usuarioID": "1",
+        "comentario": "dasads"
+    },
+    {
+        "comentarioID": "10",
+        "usuarioID": "1",
+        "comentario": "comentario de prueba 1"
+    },
+    {
+        "comentarioID": "11",
+        "usuarioID": "1",
+        "comentario": "voy a ser borrado"
     }
 ]
