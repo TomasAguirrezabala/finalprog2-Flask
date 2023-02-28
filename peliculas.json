@@ -7,7 +7,9 @@
         "peliculaID": "1",
         "portada": " ",
         "sinopsis": ""
-        ,"comentariosID": "0"
+        ,"comentariosID": "0",
+        "puntuacion":"",
+        "puntuaciones":{}
     },
     {
         "nombre": "batman",
@@ -17,7 +19,9 @@
         "peliculaID": "2",
         "portada": "asd",
         "sinopsis": "heroe"
-        ,"comentariosID": "1"
+        ,"comentariosID": "1",
+        "puntuacion":"",
+        "puntuaciones":{}
     },
     {
         "nombre": "El Guason",
@@ -27,7 +31,9 @@
         "peliculaID": "3",
         "portada": "asddd",
         "sinopsis": "villano"
-        ,"comentariosID": "2"
+        ,"comentariosID": "2",
+        "puntuacion":"",
+        "puntuaciones":{}
     },
     {
         "nombre": "tomas",
@@ -37,7 +43,9 @@
         "peliculaID": "4",
         "portada": "sadasdas",
         "sinopsis": "alto capo"
-        ,"comentariosID": "3"
+        ,"comentariosID": "3",
+        "puntuacion":"",
+        "puntuaciones":{}
     },
     {
         "nombre": "tomas 2",
@@ -47,6 +55,8 @@
         "peliculaID": "5",
         "portada": "asdsadasd",
         "sinopsis": "alto capo x2"
-        ,"comentariosID": "4"
+        ,"comentariosID": "4",
+        "puntuacion":"",
+        "puntuaciones":{}
     }
 ]
