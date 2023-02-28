@@ -2,7 +2,7 @@
     {
         "comentarioID": "1",
         "usuarioID": "1",
-        "comentario": "Mala peli"
+        "comentario": "0"
     },
     {
         "comentarioID": "2",
@@ -20,11 +20,6 @@
         "comentario": "Mala peli"
     },
     {
-        "comentarioID": "5",
-        "usuarioID": "1",
-        "comentario": "Mala peli"
-    },
-    {
         "comentarioID": "6",
         "usuarioID": "1",
         "comentario": "Mala peli"
@@ -38,5 +33,20 @@
         "comentarioID": "8",
         "usuarioID": "1",
         "comentario": "Mala peli"
+    },
+    {
+        "comentarioID": "10",
+        "usuarioID": "1",
+        "comentario": "comentario de prueba 1"
+    },
+    {
+        "comentarioID": "11",
+        "usuarioID": "1",
+        "comentario": "ya no voy a ser borrado, el menos por ahora"
+    },
+    {
+        "comentarioID": "12",
+        "usuarioID": "1",
+        "comentario": "comentario de prueba definitivo exitoso :)"
     }
 ]

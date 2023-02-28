@@ -6,6 +6,14 @@
         "anio": "1999",
         "peliculaID": "1",
         "portada": " ",
+        "sinopsis": "",
+        "comentariosID": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "11"
+        ]
         "sinopsis": ""
         ,"comentariosID": "0",
         "puntuacion":"",
@@ -19,9 +27,7 @@
         "peliculaID": "2",
         "portada": "asd",
         "sinopsis": "heroe"
-        ,"comentariosID": "1",
-        "puntuacion":"",
-        "puntuaciones":{}
+        ,"comentariosID": "1"
     },
     {
         "nombre": "El Guason",
@@ -31,9 +37,7 @@
         "peliculaID": "3",
         "portada": "asddd",
         "sinopsis": "villano"
-        ,"comentariosID": "2",
-        "puntuacion":"",
-        "puntuaciones":{}
+        ,"comentariosID": "2"
     },
     {
         "nombre": "tomas",
@@ -43,9 +47,7 @@
         "peliculaID": "4",
         "portada": "sadasdas",
         "sinopsis": "alto capo"
-        ,"comentariosID": "3",
-        "puntuacion":"",
-        "puntuaciones":{}
+        ,"comentariosID": "3"
     },
     {
         "nombre": "tomas 2",
@@ -55,8 +57,6 @@
         "peliculaID": "5",
         "portada": "asdsadasd",
         "sinopsis": "alto capo x2"
-        ,"comentariosID": "4",
-        "puntuacion":"",
-        "puntuaciones":{}
+        ,"comentariosID": "4"
     }
 ]
