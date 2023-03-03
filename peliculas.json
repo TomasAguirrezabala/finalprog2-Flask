@@ -1,12 +1,6 @@
 [
     {
-        "nombre": "el senior de los anillos",
-        "directorID": "1",
-        "generoPeli": "accion",
         "anio": "1999",
-        "peliculaID": "1",
-        "portada": " ",
-        "sinopsis": "",
         "comentariosID": [
             "1",
             "2",
@@ -14,55 +8,65 @@
             "4",
             "11"
         ],
-        "puntuacion":"",
-        "puntuaciones":{}
+        "directorID": "1",
+        "generoPeli": "accion",
+        "nombre": "el senior de los anillos",
+        "peliculaID": "1",
+        "portada": " ",
+        "puntuacion": 8,
+        "puntuaciones": {
+            "2": 8
+        },
+        "sinopsis": ""
     },
     {
-        "nombre": "batman",
+        "anio": "2013",
+        "comentariosID": [],
         "directorID": "1",
         "generoPeli": "terror",
-        "anio": "2013",
+        "nombre": "batman",
         "peliculaID": "2",
         "portada": "asd",
+        "puntuacion": 10,
+        "puntuaciones": {
+            "2": 10
+        },
         "sinopsis": "heroe"
-        ,"comentariosID": [],
-        "puntuacion":"",
-        "puntuaciones":{}
     },
     {
-        "nombre": "El Guason",
+        "anio": "2010",
+        "comentariosID": [],
         "directorID": "2",
         "generoPeli": "accion",
-        "anio": "2010",
+        "nombre": "El Guason",
         "peliculaID": "3",
         "portada": "asddd",
+        "puntuacion": "",
+        "puntuaciones": {},
         "sinopsis": "villano"
-        ,"comentariosID": [],
-        "puntuacion":"",
-        "puntuaciones":{}
     },
     {
-        "nombre": "tomas",
+        "anio": "2002",
+        "comentariosID": [],
         "directorID": "1",
         "generoPeli": "accion",
-        "anio": "2002",
+        "nombre": "tomas",
         "peliculaID": "4",
         "portada": "sadasdas",
+        "puntuacion": "",
+        "puntuaciones": {},
         "sinopsis": "alto capo"
-        ,"comentariosID": [],
-        "puntuacion":"",
-        "puntuaciones":{}
     },
     {
-        "nombre": "tomas 2",
+        "anio": "2012",
+        "comentariosID": [],
         "directorID": "1",
         "generoPeli": "accion",
-        "anio": "2012",
+        "nombre": "tomas 2",
         "peliculaID": "5",
         "portada": "asdsadasd",
+        "puntuacion": "",
+        "puntuaciones": {},
         "sinopsis": "alto capo x2"
-        ,"comentariosID": [],
-        "puntuacion":"",
-        "puntuaciones":{}
     }
 ]

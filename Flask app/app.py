@@ -281,7 +281,19 @@ def modificarComentario():
 
 #     return Response("{}", status=HTTPStatus.NOT_FOUND)
 
+@app.route("/peliculas/puntuar", methods=['PUT'])
+def puntuar_pelicula():
+    with open('peliculas.json', 'r') as pelisData:
+        peliculas = json.load(pelisData)
 
+    
+    peliculas = request.get_json()
+
+
+    with open('peliculas.json', 'w') as pelisData:
+        json.dump(peliculas, pelisData, indent=4)
+
+    return "pelicula puntuada con exito."
 
 
 if __name__ == '__main__':
