@@ -1,12 +1,26 @@
 [
     {
-      "usuario":"tomas",
-      "contrasena":"123",
-      "usuarioID":"1"  
+        "usuario": "tomas",
+        "contrasena": "123",
+        "usuarioID": "1",
+        "admin": true
     },
     {
-        "usuario":"santiago",
-        "contrasena":"123",
-        "usuarioID":"2"
+        "usuario": "santiago",
+        "contrasena": "123",
+        "usuarioID": "2",
+        "admin": true
+    },
+    {
+        "usuario": "fulano",
+        "contrasena": "123",
+        "usuarioID": "3",
+        "admin": false
+    },
+    {
+        "usuario": "tomas n",
+        "usuarioID": "4",
+        "contrasena": "123",
+        "admin": false
     }
 ]
