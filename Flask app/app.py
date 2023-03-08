@@ -94,15 +94,9 @@ def postPeliNueva():
 
 @app.route("/ultimas_diez_peliculas")
 def get_ultimas_diez_peliculas():
-    contador = 0
     with open('peliculas.json', 'r') as datos_diez_peliculas:
         diez_pelis = json.load(datos_diez_peliculas)
-    ultimas_diez_peliculas = []
-    for pelicula in reversed(diez_pelis):
-        contador = contador + 1
-        ultimas_diez_peliculas.append(pelicula)
-        if contador == 10:
-            break
+    ultimas_diez_peliculas = diez_pelis[-10:]
     return jsonify(ultimas_diez_peliculas)
 
 @app.route("/peliculas/modif/", methods=['PUT'])
