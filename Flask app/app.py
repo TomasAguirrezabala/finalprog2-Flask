@@ -308,8 +308,6 @@ def nuevoIdUsuarios():
     with open('usuarios.json', 'r') as datosUsuarios:
         usuarios = json.load(datosUsuarios)
     return str(int(usuarios[-1]["usuarioID"]) + 1)
-@app.route("/peliculas/puntuar", methods=['PUT'])
-
 
 
 @app.route("/peliculas/actualizar", methods=['PUT'])
