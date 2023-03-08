@@ -262,27 +262,58 @@ def modificarComentario():
         json.dump(comentarios, comenModificadoData, indent=4)
 
     return "El comentario fue editado con exito!"
+# termina ABM Comentarios
+#ABM Usuarios
+@app.route('/usuarios/abm', methods=['GET', 'POST' ])
+def usuariosGetAgregar():
+    id = nuevoIdUsuarios()
+    if request.method == 'GET':
+        with open('usuarios.json', 'r') as usuariosData:
+            usuarios = json.load(usuariosData)
+        return jsonify(usuarios, indent = 4)
 
-# @app.route("/peliculas/<idPelicula>/comentarios/")
-# def getComentarios(idPelicula):
-#     #Obteneniendo JSONs
-#     comentarios = fc.obtenerComentarios()
-#     peliculas = fc.obtenerPeliculas()
+    elif request.method == 'POST':
+        nombre = request.get_json()['usuario']
+        contrasena = request.get_json()['contrasena']
+        admin = request.get_json().get('admin')
 
-#     listaComentarios = []
+        with open('usuarios.json', 'r+') as usuariosData:
+            usuarios = json.load(usuariosData)
+            usuarioNuevo = {
+                'usuario': nombre,
+                'usuarioID': id,
+                'contrasena': contrasena,
+                'admin': admin
+            }
+            usuarios.append(usuarioNuevo)
+            usuariosData.seek(0)
+            json.dump(usuarios, usuariosData, indent=4)
+            usuariosData.truncate()
+        return "Usuario agregado con exito!"
 
-#     for pelicula in peliculas:
-#         if pelicula['id'] == idPelicula:
-#             for comentarioRecorrido in pelicula["idComentarios"]:
-#                 for comentario in comentarios:
-#                     if comentario['id'] == comentarioRecorrido:
-#                         listaComentarios.append(comentario)
-#                 return jsonify(listaComentarios)
+@app.route('/usuarios/<eliminarID>/eliminar', methods=['DELETE'])
+def usuarioEliminar(eliminarID):
+    with open('usuarios.json', 'r+') as usuariosData:
+        usuarios = json.load(usuariosData)
+        for usuario in usuarios:
+            if usuario['usuarioID'] == eliminarID:
+                usuarios.remove(usuario)
+                break
+        usuariosData.seek(0)
+        json.dump(usuarios, usuariosData, indent=4)
+        usuariosData.truncate()
+    return "Usuario eliminado con exito!"
+# id usuarios
+def nuevoIdUsuarios():
+    with open('usuarios.json', 'r') as datosUsuarios:
+        usuarios = json.load(datosUsuarios)
+    return str(int(usuarios[-1]["usuarioID"]) + 1)
+@app.route("/peliculas/puntuar", methods=['PUT'])
 
-#     return Response("{}", status=HTTPStatus.NOT_FOUND)
+
 
 @app.route("/peliculas/actualizar", methods=['PUT'])
-def puntuar_pelicula():
+def actualizar_pelicula():
     with open('peliculas.json', 'r') as pelisData:
         peliculas = json.load(pelisData)
 
@@ -293,7 +324,7 @@ def puntuar_pelicula():
     with open('peliculas.json', 'w') as pelisData:
         json.dump(peliculas, pelisData, indent=4)
 
-    return "pelicula puntuada con exito."
+    return "pelicula actualizada con exito."
 
 
 if __name__ == '__main__':
