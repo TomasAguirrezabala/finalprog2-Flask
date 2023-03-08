@@ -9,7 +9,7 @@
         "usuario": "santiago",
         "contrasena": "123",
         "usuarioID": "2",
-        "admin": true
+        "admin": false
     },
     {
         "usuario": "fulano",

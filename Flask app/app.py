@@ -264,8 +264,8 @@ def modificarComentario():
     return "El comentario fue editado con exito!"
 # termina ABM Comentarios
 #ABM Usuarios
-@app.route('/usuarios/abm', methods=['GET', 'POST', 'DELETE'])
-def usuariosABM():
+@app.route('/usuarios/abm', methods=['GET', 'POST' ])
+def usuariosGetAgregar():
     id = nuevoIdUsuarios()
     if request.method == 'GET':
         with open('usuarios.json', 'r') as usuariosData:
@@ -274,7 +274,6 @@ def usuariosABM():
 
     elif request.method == 'POST':
         nombre = request.get_json()['usuario']
-        usuarioID = request.get_json()['usuarioID']
         contrasena = request.get_json()['contrasena']
         admin = request.get_json().get('admin')
 
@@ -292,20 +291,19 @@ def usuariosABM():
             usuariosData.truncate()
         return "Usuario agregado con exito!"
 
-    elif request.method == 'DELETE':
-        usuarioID = request.get_json()['usuarioID']
+@app.route('/usuarios/<eliminarID>/eliminar', methods=['DELETE'])
+def usuarioEliminar(eliminarID):
+    with open('usuarios.json', 'r+') as usuariosData:
+        usuarios = json.load(usuariosData)
+        for usuario in usuarios:
+            if usuario['usuarioID'] == eliminarID:
+                usuarios.remove(usuario)
+                break
+        usuariosData.seek(0)
+        json.dump(usuarios, usuariosData, indent=4)
+        usuariosData.truncate()
 
-        with open('usuarios.json', 'r+') as usuariosData:
-            usuarios = json.load(usuariosData)
-            for usuario in usuarios['usuario']:
-                if usuario['usuarioID'] == usuarioID:
-                    usuarios['usuario'].remove(usuario)
-                    break
-            usuariosData.seek(0)
-            json.dump(usuarios, usuariosData, indent=4)
-            usuariosData.truncate()
-
-        return "Usuario eliminado con exito!"
+    return "Usuario eliminado con exito!"
 # id usuarios
 def nuevoIdUsuarios():
     with open('usuarios.json', 'r') as datosUsuarios:
