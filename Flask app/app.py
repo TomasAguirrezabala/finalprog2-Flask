@@ -94,15 +94,9 @@ def postPeliNueva():
 
 @app.route("/ultimas_diez_peliculas")
 def get_ultimas_diez_peliculas():
-    contador = 0
     with open('peliculas.json', 'r') as datos_diez_peliculas:
         diez_pelis = json.load(datos_diez_peliculas)
-    ultimas_diez_peliculas = []
-    for pelicula in reversed(diez_pelis):
-        contador = contador + 1
-        ultimas_diez_peliculas.append(pelicula)
-        if contador == 10:
-            break
+    ultimas_diez_peliculas = diez_pelis[-10:]
     return jsonify(ultimas_diez_peliculas)
 
 @app.route("/peliculas/modif/", methods=['PUT'])
@@ -302,19 +296,16 @@ def usuarioEliminar(eliminarID):
         usuariosData.seek(0)
         json.dump(usuarios, usuariosData, indent=4)
         usuariosData.truncate()
-
     return "Usuario eliminado con exito!"
 # id usuarios
 def nuevoIdUsuarios():
     with open('usuarios.json', 'r') as datosUsuarios:
         usuarios = json.load(datosUsuarios)
     return str(int(usuarios[-1]["usuarioID"]) + 1)
-@app.route("/peliculas/puntuar", methods=['PUT'])
 
 
-
-
-def puntuar_pelicula():
+@app.route("/peliculas/actualizar", methods=['PUT'])
+def actualizar_pelicula():
     with open('peliculas.json', 'r') as pelisData:
         peliculas = json.load(pelisData)
 
@@ -325,7 +316,7 @@ def puntuar_pelicula():
     with open('peliculas.json', 'w') as pelisData:
         json.dump(peliculas, pelisData, indent=4)
 
-    return "pelicula puntuada con exito."
+    return "pelicula actualizada con exito."
 
 
 if __name__ == '__main__':
