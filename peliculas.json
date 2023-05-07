@@ -13,19 +13,12 @@
         "nombre": "el senior de los anillos",
         "peliculaID": "1",
         "portada": " ",
-<<<<<<< HEAD
-        "puntuacion": 18,
-        "puntuaciones": {
-            "2": 8,
-            "1": 10
-=======
         "puntuacion": 4,
         "puntuaciones": {
             "2": 4
->>>>>>> 94f5eecb192a98b807305e794be1b083637c546c
         },
         "sinopsis": "",
-        "visualizaciones": 3
+        "visualizaciones": 4
     },
     {
         "anio": "2013",
@@ -38,7 +31,7 @@
         "puntuacion": "",
         "puntuaciones": {},
         "sinopsis": "heroe",
-        "visualizaciones": 0
+        "visualizaciones": 1
     },
     {
         "anio": "2002",
@@ -51,7 +44,7 @@
         "puntuacion": "",
         "puntuaciones": {},
         "sinopsis": "alto capo",
-        "visualizaciones": 0
+        "visualizaciones": 1
     },
     {
         "anio": "2012",
@@ -61,25 +54,12 @@
         "nombre": "tomas 2",
         "peliculaID": "5",
         "portada": "asdsadasd",
-        "puntuacion": "",
-        "puntuaciones": {},
-<<<<<<< HEAD
-        "sinopsis": "alto capo x2"
-    },
-    {
-        "anio": "1999",
-        "comentariosID": [],
-        "directorID": "3",
-        "generoPeli": "comedia",
-        "nombre": "stefi",
-        "peliculaID": "6",
-        "portada": "dawsdasdsad",
-        "puntuacion": "",
-        "puntuaciones": {},
-        "sinopsis": "stefi"
-=======
+        "puntuacion": 2,
+        "puntuaciones": {
+            "1": 2
+        },
         "sinopsis": "alto capo x2",
-        "visualizaciones": 0
+        "visualizaciones": 2
     },
     {
         "anio": "2012",
@@ -92,7 +72,7 @@
         "puntuacion": "",
         "puntuaciones": {},
         "sinopsis": "alto capo x2",
-        "visualizaciones": 0
+        "visualizaciones": 2
     },
     {
         "anio": "2012",
@@ -105,7 +85,7 @@
         "puntuacion": "",
         "puntuaciones": {},
         "sinopsis": "alto capo x2",
-        "visualizaciones": 0
+        "visualizaciones": 2
     },
     {
         "anio": "2012",
@@ -118,7 +98,7 @@
         "puntuacion": "",
         "puntuaciones": {},
         "sinopsis": "alto capo x2",
-        "visualizaciones": 0
+        "visualizaciones": 2
     },
     {
         "anio": "2012",
@@ -131,7 +111,7 @@
         "puntuacion": "",
         "puntuaciones": {},
         "sinopsis": "alto capo x2",
-        "visualizaciones": 0
+        "visualizaciones": 2
     },
     {
         "anio": "2012",
@@ -141,10 +121,13 @@
         "nombre": "tomas 2",
         "peliculaID": "10",
         "portada": "asdsadasd",
-        "puntuacion": "",
-        "puntuaciones": {},
+        "puntuacion": 10,
+        "puntuaciones": {
+            "1": 5,
+            "2": 5
+        },
         "sinopsis": "alto capo x2",
-        "visualizaciones": 0
+        "visualizaciones": 2
     },
     {
         "anio": "2012",
@@ -157,7 +140,19 @@
         "puntuacion": "",
         "puntuaciones": {},
         "sinopsis": "alto capo x2",
-        "visualizaciones": 0
->>>>>>> 94f5eecb192a98b807305e794be1b083637c546c
+        "visualizaciones": 2
+    },
+    {
+        "anio": "2002",
+        "comentariosID": [],
+        "directorID": "1",
+        "generoPeli": "comedia",
+        "nombre": "pruba 1",
+        "peliculaID": "12",
+        "portada": "asdsadas",
+        "puntuacion": "",
+        "puntuaciones": {},
+        "sinopsis": "dasd",
+        "visualizaciones": 1
     }
 ]

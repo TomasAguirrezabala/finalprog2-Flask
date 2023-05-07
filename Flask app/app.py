@@ -303,6 +303,37 @@ def nuevoIdUsuarios():
         usuarios = json.load(datosUsuarios)
     return str(int(usuarios[-1]["usuarioID"]) + 1)
 
+@app.route("/usuarios/admin/<nuevoAdminID>", methods=['PUT'])
+def hacerAdmin(nuevoAdminID):
+    with open('usuarios.json', 'r') as datosUsuarios:
+        usuarios = json.load(datosUsuarios)
+        
+    for usuario in usuarios:
+        if usuario['usuarioID'] == nuevoAdminID:
+            usuario['admin'] = True
+            break
+    
+    with open('usuarios.json', 'w') as usuariosData:
+        json.dump(usuarios, usuariosData, indent=4)
+
+    return "Felicidades, el usuario ya es un admin!"
+
+@app.route("/usuarios/admin/eliminar/<exAdminID>", methods=['PUT'])
+def quitarAdmin(exAdminID):
+    with open('usuarios.json', 'r') as datosUsuarios:
+        usuarios = json.load(datosUsuarios)
+        
+    for usuario in usuarios:
+        if usuario['usuarioID'] == exAdminID:
+            usuario['admin'] = False
+            break
+    
+    with open('usuarios.json', 'w') as usuariosData:
+        json.dump(usuarios, usuariosData, indent=4)
+
+    return "Felicidades, el usuario ya no es un admin!"
+
+# termina ABM Usuarios
 
 @app.route("/peliculas/actualizar", methods=['PUT'])
 def actualizar_pelicula():
@@ -317,6 +348,17 @@ def actualizar_pelicula():
         json.dump(peliculas, pelisData, indent=4)
 
     return "pelicula actualizada con exito."
+
+#ABM director
+# @app.route("/director/crear/<nuevoDirectorID>", methods=["POST"])
+# @app.route("/director/eliminar/<exDirectorID",methods=['DELETE'])
+# @app.route("/director/modificar/<modificadoDirectorID>", methods=['PUT'])
+#termina ABM director
+
+#ABM genero
+@app.route("/genero/crear/<nuevoGeneroID>", methods=["POST"])
+@app.route("/genero/eliminar/<exGeneroID>", methods=["DELETE"])
+@app.route("/genero/modificar/<modificadoGeneroID>", methods=["PUT"])
 
 
 if __name__ == '__main__':
