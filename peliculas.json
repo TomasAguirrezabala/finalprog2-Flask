@@ -13,9 +13,10 @@
         "nombre": "el senior de los anillos",
         "peliculaID": "1",
         "portada": " ",
-        "puntuacion": 8,
+        "puntuacion": 18,
         "puntuaciones": {
-            "2": 8
+            "2": 8,
+            "1": 10
         },
         "sinopsis": ""
     },
@@ -68,5 +69,17 @@
         "puntuacion": "",
         "puntuaciones": {},
         "sinopsis": "alto capo x2"
+    },
+    {
+        "anio": "1999",
+        "comentariosID": [],
+        "directorID": "3",
+        "generoPeli": "comedia",
+        "nombre": "stefi",
+        "peliculaID": "6",
+        "portada": "dawsdasdsad",
+        "puntuacion": "",
+        "puntuaciones": {},
+        "sinopsis": "stefi"
     }
 ]
