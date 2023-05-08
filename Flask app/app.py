@@ -350,16 +350,38 @@ def actualizar_pelicula():
     return "pelicula actualizada con exito."
 
 #ABM director
-# @app.route("/director/crear/<nuevoDirectorID>", methods=["POST"])
+#id director
+def nuevoIdDirector():
+    with open('directores.json', 'r') as datosDirectores:
+        directores = json.load(datosDirectores)
+    return str(int(directores[-1]["idDirector"]) + 1)
+
+@app.route("/director/crear", methods=["POST"])
+def nuevoDirector():
+    id = nuevoIdDirector()
+    nombre = request.get_json()['director']
+    
+    with open('directores.json', 'r+') as directoresData:
+        directores = json.load(directoresData)
+        directorNuevo = {
+            'director' : nombre,
+            'idDirector' : id
+        }
+        directores.append(directorNuevo)
+        directoresData.seek(0)
+        json.dump(directores, directoresData, indent=4)
+        directoresData.truncate()
+    return "Director generado con exito!"     
+        
 # @app.route("/director/eliminar/<exDirectorID",methods=['DELETE'])
 # @app.route("/director/modificar/<modificadoDirectorID>", methods=['PUT'])
 #termina ABM director
 
 #ABM genero
-@app.route("/genero/crear/<nuevoGeneroID>", methods=["POST"])
-@app.route("/genero/eliminar/<exGeneroID>", methods=["DELETE"])
-@app.route("/genero/modificar/<modificadoGeneroID>", methods=["PUT"])
-
+# @app.route("/genero/crear/<nuevoGeneroID>", methods=["POST"])
+# @app.route("/genero/eliminar/<exGeneroID>", methods=["DELETE"])
+# @app.route("/genero/modificar/<modificadoGeneroID>", methods=["PUT"])
+#termina ABM genero
 
 if __name__ == '__main__':
     app.run(debug=True)

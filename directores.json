@@ -1,14 +1,34 @@
 [
     {
-        "director":"Tomas",
-        "idDirector":"1"
+        "director": "Tomas",
+        "idDirector": "1"
     },
     {
-        "director":"Santiago",
-        "idDirector":"2"
+        "director": "Santiago",
+        "idDirector": "2"
     },
     {
-        "director":"Fulano",
-        "idDirector":"3"
+        "director": "Fulano",
+        "idDirector": "3"
+    },
+    {
+        "director": "marcelo die",
+        "idDirector": "4"
+    },
+    {
+        "director": "nadie",
+        "idDirector": "5"
+    },
+    {
+        "director": "mentira",
+        "idDirector": "6"
+    },
+    {
+        "director": "otra prueba",
+        "idDirector": "7"
+    },
+    {
+        "director": "eliminar 1",
+        "idDirector": "8"
     }
 ]
