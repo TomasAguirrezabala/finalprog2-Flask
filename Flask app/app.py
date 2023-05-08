@@ -356,9 +356,49 @@ def actualizar_pelicula():
 #termina ABM director
 
 #ABM genero
+def nuevoIdGenero():
+    with open('generos.json', 'r') as generosData:
+        generos = json.load(generosData)
+    return str(int(generos[-1]["idgenero"]) + 1)
+
 @app.route("/genero/crear/<nuevoGeneroID>", methods=["POST"])
-@app.route("/genero/eliminar/<exGeneroID>", methods=["DELETE"])
+def nuevoGenero():
+    id = nuevoIdGenero
+    nombre = request.get_json()['generoNombre']
+
+    with open('generos.json', 'r+') as generosData:
+        generos = json.load(generosData)
+        generoNuevo = {
+            'generoNombre' : nombre,
+            'idgenero' : id
+        }
+        generos.append(generoNuevo)
+        generosData.seek(0)
+        json.dump(generos, generosData, indent=4)
+        generosData.truncate()
+    return "Genero creado con exito!"
+
+#@app.route("/genero/eliminar/<exGeneroID>", methods=["DELETE"])
+#def eliminarGenero():
+
+
 @app.route("/genero/modificar/<modificadoGeneroID>", methods=["PUT"])
+def modificarGenero():
+    with open('generos.json', 'r') as generosData:
+        generos = json.load(generosData)
+
+    
+    generoModificado = request.get_json()
+
+    for genero in generos:
+        #VALIDAR
+        if 1 == 1:
+            genero['generoNombre'] = generoModificado['generoNombre']
+
+    with open('generos.json', 'w') as generoModificadoData:
+        json.dump(generos, generoModificadoData, indent=4)
+
+    return "El genero fue editado con exito!"
 
 
 if __name__ == '__main__':
