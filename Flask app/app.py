@@ -373,11 +373,7 @@ def nuevoDirector():
         directoresData.truncate()
     return "Director generado con exito!"     
         
-<<<<<<< HEAD
 @app.route("/director/eliminar/<exDirectorID>",methods=['DELETE'])
-=======
-@app.route("/director/eliminar/<exDirectorID",methods=['DELETE'])
->>>>>>> 648d427d917b07871a374ab817a535f4688f52c3
 def eliminarDirector(exDirectorID):
     encontrado = False
     with open('directores.json', 'r+') as directoresData:
@@ -394,14 +390,6 @@ def eliminarDirector(exDirectorID):
         return "Director eliminado con exito!"
     else:
         return "Director no encontrado!"
-<<<<<<< HEAD
-    
-@app.route("/director/modificar/<modificadoDirectorID>", methods=['PUT'])
-def modificarDirector(modificadoDirectorID):
-    return
-    
-    
-=======
 
 @app.route("/director/modificar/<modificadoGeneroID>", methods=["PUT"])
 def modificarDirector():
@@ -421,7 +409,6 @@ def modificarDirector():
         json.dump(directores, directorModificadoData, indent=4)
 
     return "El director fue editado con exito!"
->>>>>>> 648d427d917b07871a374ab817a535f4688f52c3
 #termina ABM director
 
 #ABM genero
