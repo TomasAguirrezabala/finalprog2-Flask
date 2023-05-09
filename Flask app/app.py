@@ -373,7 +373,11 @@ def nuevoDirector():
         directoresData.truncate()
     return "Director generado con exito!"     
         
+<<<<<<< HEAD
 @app.route("/director/eliminar/<exDirectorID>",methods=['DELETE'])
+=======
+@app.route("/director/eliminar/<exDirectorID",methods=['DELETE'])
+>>>>>>> 648d427d917b07871a374ab817a535f4688f52c3
 def eliminarDirector(exDirectorID):
     encontrado = False
     with open('directores.json', 'r+') as directoresData:
@@ -390,19 +394,98 @@ def eliminarDirector(exDirectorID):
         return "Director eliminado con exito!"
     else:
         return "Director no encontrado!"
+<<<<<<< HEAD
     
 @app.route("/director/modificar/<modificadoDirectorID>", methods=['PUT'])
 def modificarDirector(modificadoDirectorID):
     return
     
     
+=======
+
+@app.route("/director/modificar/<modificadoGeneroID>", methods=["PUT"])
+def modificarDirector():
+    with open('directores.json', 'r') as directoresData:
+        directores = json.load(directoresData)
+
+    directorModificado = request.get_json()
+
+    for director in directores:
+        if director['directorNombre'] == directorModificado['directorNombre'] and director['iddirector'] != directorModificado['iddirector']:
+            return "El director ya existe"
+
+        if director['iddirector'] == directorModificado['iddirector']:
+            director['generoNombre'] = directorModificado['directorNombre']
+
+    with open('directores.json', 'w') as directorModificadoData:
+        json.dump(directores, directorModificadoData, indent=4)
+
+    return "El director fue editado con exito!"
+>>>>>>> 648d427d917b07871a374ab817a535f4688f52c3
 #termina ABM director
 
 #ABM genero
-# @app.route("/genero/crear/<nuevoGeneroID>", methods=["POST"])
-# @app.route("/genero/eliminar/<exGeneroID>", methods=["DELETE"])
-# @app.route("/genero/modificar/<modificadoGeneroID>", methods=["PUT"])
-#termina ABM genero
+def nuevoIdGenero():
+    with open('generos.json', 'r') as generosData:
+        generos = json.load(generosData)
+    return str(int(generos[-1]["idgenero"]) + 1)
+
+@app.route("/genero/crear/<nuevoGeneroID>", methods=["POST"])
+def nuevoGenero():
+    id = nuevoIdGenero
+    nombre = request.get_json()['generoNombre']
+
+    with open('generos.json', 'r+') as generosData:
+        generos = json.load(generosData)
+        generoNuevo = {
+            'generoNombre' : nombre,
+            'idgenero' : id
+        }
+        generos.append(generoNuevo)
+        generosData.seek(0)
+        json.dump(generos, generosData, indent=4)
+        generosData.truncate()
+    return "Genero creado con exito!"
+
+@app.route("/genero/eliminar/<exGeneroID>", methods=["DELETE"])
+def eliminarGenero(exGeneroID):
+    encontrado = False
+    with open('generos.json', 'r+') as generosData:
+        generos = json.load(generosData)
+        for genero in generos:
+            if genero['idGenero'] == exGeneroID:
+                encontrado = True
+                generos.remove(genero)
+                break
+        generosData.seek(0)
+        json.dump(generos, generosData, indent=4)
+        generosData.truncate()
+    if encontrado == True:
+        return "Genero eliminado con exito!"
+    else:
+        return "Genero no encontrado!"
+
+@app.route("/genero/modificar/<modificadoGeneroID>", methods=["PUT"])
+def modificarGenero():
+    with open('generos.json', 'r') as generosData:
+        generos = json.load(generosData)
+
+    generoModificado = request.get_json()
+
+    for genero in generos:
+        if genero['generoNombre'] == generoModificado['generoNombre'] and genero['idgenero'] != generoModificado['idgenero']:
+            return "El genero ya existe"
+
+        if genero['idgenero'] == generoModificado['idgenero']:
+            genero['generoNombre'] = generoModificado['generoNombre']
+
+    with open('generos.json', 'w') as generoModificadoData:
+        json.dump(generos, generoModificadoData, indent=4)
+
+    return "El genero fue editado con exito!"
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
