@@ -295,6 +295,21 @@ def usuarioEliminar(eliminarID):
         json.dump(usuarios, usuariosData, indent=4)
         usuariosData.truncate()
     return "Usuario eliminado con exito!"
+
+@app.route('/usuarios/modificar', methods = ['PUT'])
+def modificarUsuario():
+    with open('usuarios.json', 'r+') as usuariosData:
+        usuarios = json.load(usuariosData)
+        usuarioModificado = request.get_json()
+        for usuario in usuarios:
+            if usuario['usuarioID'] == usuarioModificado['usuarioID']:
+                usuario["usuario"] = usuarioModificado["usuario"]
+                usuario["contrasena"] = usuarioModificado["contrasena"]
+        usuariosData.seek(0)
+        json.dump(usuarios, usuariosData, indent=4)
+        usuariosData.truncate()
+    return "El usuario fue editado con exito!"
+
 # id usuarios
 def nuevoIdUsuarios():
     with open('usuarios.json', 'r') as datosUsuarios:
@@ -389,24 +404,23 @@ def eliminarDirector(exDirectorID):
     else:
         return "Director no encontrado!"
 
-@app.route("/director/modificar/", methods=["PUT"])
+@app.route("/director/modificar", methods=["PUT"])
 def modificarDirector():
-    with open('directores.json', 'r') as directoresData:
+    modificado = False
+    with open('directores.json', 'r+') as directoresData:
         directores = json.load(directoresData)
-
-    directorModificado = request.get_json()
-
-    for director in directores:
-        if director['director'] == directorModificado['director'] and director['idDirector'] != directorModificado['idDirector']:
-            return "El director ya existe"
-
-        if director['idDirector'] == directorModificado['idDirector']:
-            director['director'] = directorModificado['director']
-
-    with open('directores.json', 'w') as directorModificadoData:
-        json.dump(directores, directorModificadoData, indent=4)
-
-    return "El director fue editado con exito!"
+        directorModificado = request.get_json()
+        for director in directores:
+            if director['idDirector'] == directorModificado['idDirector']:
+                director["director"] = directorModificado["director"]
+                modificado = True
+        directoresData.seek(0)
+        json.dump(directores, directoresData, indent=4)
+        directoresData.truncate()
+    if modificado == True:
+        return "El director fue editado con exito!"
+    else:
+        return "EL director no pudo ser editado o no existe"
 #termina ABM director
 
 #ABM genero
@@ -452,26 +466,16 @@ def eliminarGenero(generoEliminar):
 
 @app.route("/genero/modificar", methods=["PUT"])
 def modificarGenero():
-    with open('generos.json', 'r') as generosData:
+    with open('generos.json', 'r+') as generosData:
         generos = json.load(generosData)
-
-    generoModificado = request.get_json()
-
-    for genero in generos:
-        if genero['generoNombre'] == generoModificado['generoNombre'] and genero['idgenero'] != generoModificado['idgenero']:
-            return "El genero ya existe"
-
-        if genero['idgenero'] == generoModificado['idgenero']:
-            genero['generoNombre'] = generoModificado['generoNombre']
-
-    with open('generos.json', 'w') as generoModificadoData:
-        json.dump(generos, generoModificadoData, indent=4)
-
-    return "El genero fue editado con exito!"
-
-
-
-
+        generoModificado = request.get_json()
+        for genero in generos:
+            if genero['idgenero'] == generoModificado['idgenero']:
+                genero["generoNombre"] = generoModificado["generoNombre"]
+        generosData.seek(0)
+        json.dump(generos, generosData, indent=4)
+        generosData.truncate()
+    return "El genero fue modificado con exito!"
 if __name__ == '__main__':
     app.run(debug=True)
     
