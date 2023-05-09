@@ -3,20 +3,20 @@
         "anio": "1999",
         "comentariosID": [
             "2",
-            "3"
+            "3",
+            "5"
         ],
         "directorID": "1",
         "generoPeli": "accion",
-        "nombre": "el senior de los anillos",
+        "nombre": "El senor de los anillos",
         "peliculaID": "1",
-        "portada": " ",
-        "puntuacion": 9,
+        "portada": "asdasdqasd",
+        "puntuacion": 5,
         "puntuaciones": {
-            "1": 5,
-            "2": 4
+            "1": 5
         },
-        "sinopsis": "",
-        "visualizaciones": 4
+        "sinopsis": "sinopsis el se\u00f1or de los anillos test",
+        "visualizaciones": 5
     },
     {
         "anio": "2013",
@@ -25,57 +25,162 @@
         "generoPeli": "terror",
         "nombre": "batman",
         "peliculaID": "2",
-        "portada": "asd",
-        "puntuacion": 3,
+        "portada": "asweed",
+        "puntuacion": 3.5,
         "puntuaciones": {
-            "1": 3
+            "1": 3,
+            "2": 4
         },
         "sinopsis": "heroe",
         "visualizaciones": 1
     },
     {
-        "anio": "2002",
+        "anio": "2023",
         "comentariosID": [
-            "4",
-            "4",
             "4"
         ],
-        "directorID": "1",
+        "directorID": "2",
         "generoPeli": "accion",
-        "nombre": "tomas",
+        "nombre": "rapidos y furiosos x",
         "peliculaID": "3",
-        "portada": "sadasdas",
-        "puntuacion": "",
-        "puntuaciones": {},
-        "sinopsis": "alto capo",
+        "portada": "sadasdqas",
+        "puntuacion": 5,
+        "puntuaciones": {
+            "2": 5
+        },
+        "sinopsis": "autos",
         "visualizaciones": 2
     },
     {
         "anio": "2012",
         "comentariosID": [],
-        "directorID": "1",
+        "directorID": "4",
         "generoPeli": "accion",
-        "nombre": "tomas 2",
-        "peliculaID": "5",
-        "portada": "asdsadasd",
+        "nombre": "kung fu panda",
+        "peliculaID": "4",
+        "portada": "asdsadawsd",
         "puntuacion": 2,
         "puntuaciones": {
             "1": 2
         },
-        "sinopsis": "alto capo x2",
+        "sinopsis": "panda q hace kung fu",
         "visualizaciones": 3
     },
     {
         "anio": "2012",
         "comentariosID": [],
-        "directorID": "1",
+        "directorID": "4",
         "generoPeli": "accion",
-        "nombre": "tomas 2",
-        "peliculaID": "6",
-        "portada": "asdsadasd",
+        "nombre": "el gato con botas",
+        "peliculaID": "5",
+        "portada": "asdsadaesd",
         "puntuacion": "",
         "puntuaciones": {},
-        "sinopsis": "alto capo x2",
+        "sinopsis": "un gato q usa botas",
         "visualizaciones": 3
+    },
+    {
+        "anio": "1993",
+        "comentariosID": [],
+        "directorID": "3",
+        "generoPeli": "accion",
+        "nombre": "Batman 2",
+        "peliculaID": "6",
+        "portada": "asdssdasd",
+        "puntuacion": "",
+        "puntuaciones": {},
+        "sinopsis": "batman pero la 2",
+        "visualizaciones": 0
+    },
+    {
+        "anio": "1923",
+        "comentariosID": [],
+        "directorID": "3",
+        "generoPeli": "comedia",
+        "nombre": "charles chaplin",
+        "peliculaID": "7",
+        "portada": "asdawqsd",
+        "puntuacion": "",
+        "puntuaciones": {},
+        "sinopsis": "chaplin",
+        "visualizaciones": 0
+    },
+    {
+        "anio": "2023",
+        "comentariosID": [],
+        "directorID": "2",
+        "generoPeli": "accion",
+        "nombre": "avatar 2",
+        "peliculaID": "8",
+        "portada": "asdassssd",
+        "puntuacion": "",
+        "puntuaciones": {},
+        "sinopsis": "la 2 de avatar",
+        "visualizaciones": 0
+    },
+    {
+        "anio": "2023",
+        "comentariosID": [],
+        "directorID": "1",
+        "generoPeli": "accion",
+        "nombre": "avatar 1",
+        "peliculaID": "9",
+        "portada": "asdaasd",
+        "puntuacion": "",
+        "puntuaciones": {},
+        "sinopsis": "la 1 de avatar",
+        "visualizaciones": 0
+    },
+    {
+        "anio": "2016",
+        "comentariosID": [],
+        "directorID": "2",
+        "generoPeli": "comedia",
+        "nombre": "deadpool",
+        "peliculaID": "10",
+        "portada": "asdaddddsd",
+        "puntuacion": "",
+        "puntuaciones": {},
+        "sinopsis": "deadpool",
+        "visualizaciones": 0
+    },
+    {
+        "anio": "2021",
+        "comentariosID": [],
+        "directorID": "1",
+        "generoPeli": "accion",
+        "nombre": "spider-man: no way home",
+        "peliculaID": "11",
+        "portada": "asdassartd",
+        "puntuacion": "",
+        "puntuaciones": {},
+        "sinopsis": "3 spidermans",
+        "visualizaciones": 0
+    },
+    {
+        "anio": "2000",
+        "comentariosID": [],
+        "directorID": "4",
+        "generoPeli": "accion",
+        "nombre": "spider man 1",
+        "peliculaID": "12",
+        "portada": "asdaxcvsd",
+        "puntuacion": "",
+        "puntuaciones": {},
+        "sinopsis": "super heroe",
+        "visualizaciones": 0
+    },
+    {
+        "anio": "1976",
+        "comentariosID": [],
+        "directorID": "4",
+        "generoPeli": "accion",
+        "nombre": "duro de matar",
+        "peliculaID": "13",
+        "portada": "assadawqdasd",
+        "puntuacion": "",
+        "puntuaciones": {},
+        "sinopsis": "dificil de matar",
+        "visualizaciones": 0
     }
 ]

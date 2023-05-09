@@ -4,11 +4,14 @@ import requests as rq
 
 app=Flask(__name__)
 
+
+
 @app.route("/comentarios")
 def getComentarios():
     with open('comentarios.json', 'r') as datosComentarios:
         comentarios = json.load(datosComentarios)
     return jsonify(comentarios)
+
 
 @app.route("/generos")
 def getGeneros():
@@ -16,6 +19,7 @@ def getGeneros():
         generos = json.load(datosGeneros)
     return jsonify(generos)
         
+
 @app.route("/pelis") 
 def getPelis():
     with open('peliculas.json', 'r') as datosPeliculas:
@@ -103,24 +107,25 @@ def modifPelicula():
     modificaciones_pelicula = request.get_json()
 
     for pelicula in peliculas:
-        if pelicula["id"] == modificaciones_pelicula["id"]:
-            if modificaciones_pelicula["nombre"] != '':
+        if pelicula["peliculaID"] == modificaciones_pelicula["peliculaID"]:
+            if modificaciones_pelicula["nombre"] != "":
                 pelicula["nombre"] = modificaciones_pelicula["nombre"]
-            elif modificaciones_pelicula["directorID"] != '':
+            elif modificaciones_pelicula["directorID"] != "":
                 pelicula["directorID"] = modificaciones_pelicula["directorID"]
-            elif modificaciones_pelicula["generoPeli"] != '':
+            elif modificaciones_pelicula["generoPeli"] != "":
                 pelicula["generoPeli"] = modificaciones_pelicula["generoPeli"]
-            elif modificaciones_pelicula["anio"] != '':
+            elif modificaciones_pelicula["anio"] != "":
                 pelicula["anio"] = modificaciones_pelicula["anio"]
-            elif modificaciones_pelicula["sinopsis"] != '':
+            elif modificaciones_pelicula["sinopsis"] != "":
                 pelicula["sinopsis"] = modificaciones_pelicula["sinopsis"]
-            elif modificaciones_pelicula["portada"] != '':
+            elif modificaciones_pelicula["portada"] != "":
                 pelicula["portada"] = modificaciones_pelicula["portada"]
-                {"nombre": "", "directorID": "", "generoPeli": "", "anio": "", "id": "", "portada": "", "sinopsis": ""}
+                {"nombre": "", "directorID": "", "generoPeli": "", "anio": "", "peliculaID": "", "portada": "", "sinopsis": ""}
 
     with open('peliculas.json', 'w') as archivoJson:
         json.dump(peliculas, archivoJson)
-       
+    return "pelicula modificada con exito"
+        
 @app.route("/peliculas/<peliculaID>/usuarioID/<usuarioID>/eliminar", methods=['DELETE'])
 def borrarPeli(peliculaID, usuarioID):
     with open('peliculas.json', 'r') as datosPeliculas:
@@ -206,8 +211,10 @@ def borrarComentario(comentarioID,usuarioID):
     for comentario in comentarios:
         if comentario["usuarioID"] == usuarioID and comentario["comentarioID"] == comentarioID:
             comentarios.remove(comentario)
-            borrado = True
-            break
+            for pelicula in peliculas:                                   
+                pelicula["comentariosID"].remove(comentarioID)
+                borrado = True
+                break
 
     with open('comentarios.json', 'w') as archivoJson:
         json.dump(comentarios, archivoJson, indent=4)
@@ -231,6 +238,7 @@ def getComentariosUsuarioID(usuarioID):
             listaComentariosUsuarioID.append(comentario)
 
     return jsonify(listaComentariosUsuarioID)
+
 
 @app.route("/comentarios/modificar", methods=['PUT'])
 def modificarComentario():
@@ -289,22 +297,6 @@ def usuarioEliminar(eliminarID):
         json.dump(usuarios, usuariosData, indent=4)
         usuariosData.truncate()
     return "Usuario eliminado con exito!"
-
-@app.route('/usuarios/modificar', methods = ['PUT'])
-def modificarUsuario():
-    with open('usuarios.json', 'r+') as usuariosData:
-        usuarios = json.load(usuariosData)
-        usuarioModificado = request.get_json()
-        for usuario in usuarios:
-            if usuario['usuarioID'] == usuarioModificado['usuarioID']:
-                usuario["usuario"] = usuarioModificado["usuario"]
-                usuario["contrasena"] = usuarioModificado["contrasena"]
-        usuariosData.seek(0)
-        json.dump(usuarios, usuariosData, indent=4)
-        usuariosData.truncate()
-    return "El Usuario fue editado con exito!"
-    
-
 # id usuarios
 def nuevoIdUsuarios():
     with open('usuarios.json', 'r') as datosUsuarios:
@@ -381,7 +373,7 @@ def nuevoDirector():
         directoresData.truncate()
     return "Director generado con exito!"     
         
-@app.route("/director/eliminar/<exDirectorID>",methods=['DELETE'])
+@app.route("/director/eliminar/<exDirectorID>", methods=['DELETE'])
 def eliminarDirector(exDirectorID):
     encontrado = False
     with open('directores.json', 'r+') as directoresData:
@@ -399,17 +391,23 @@ def eliminarDirector(exDirectorID):
     else:
         return "Director no encontrado!"
 
-@app.route("/director/modificar", methods=["PUT"])
+@app.route("/director/modificar/", methods=["PUT"])
 def modificarDirector():
-    with open('directores.json', 'r+') as directoresData:
+    with open('directores.json', 'r') as directoresData:
         directores = json.load(directoresData)
-        directorModificado = request.get_json()
-        for director in directores:
-            if director['idDirector'] == directorModificado['idDirector']:
-                director["director"] = directorModificado["director"]
-        directoresData.seek(0)
-        json.dump(directores, directoresData, indent=4)
-        directoresData.truncate()
+
+    directorModificado = request.get_json()
+
+    for director in directores:
+        if director['director'] == directorModificado['director'] and director['idDirector'] != directorModificado['idDirector']:
+            return "El director ya existe"
+
+        if director['idDirector'] == directorModificado['idDirector']:
+            director['director'] = directorModificado['director']
+
+    with open('directores.json', 'w') as directorModificadoData:
+        json.dump(directores, directorModificadoData, indent=4)
+
     return "El director fue editado con exito!"
 #termina ABM director
 
@@ -456,16 +454,24 @@ def eliminarGenero(generoEliminar):
 
 @app.route("/genero/modificar", methods=["PUT"])
 def modificarGenero():
-    with open('generos.json', 'r+') as generosData:
+    with open('generos.json', 'r') as generosData:
         generos = json.load(generosData)
-        generoModificado = request.get_json()
-        for genero in generos:
-            if genero['idgenero'] == generoModificado['idgenero']:
-                genero["generoNombre"] = generoModificado["generoNombre"]
-        generosData.seek(0)
-        json.dump(generos, generosData, indent=4)
-        generosData.truncate()
+
+    generoModificado = request.get_json()
+
+    for genero in generos:
+        if genero['generoNombre'] == generoModificado['generoNombre'] and genero['idgenero'] != generoModificado['idgenero']:
+            return "El genero ya existe"
+
+        if genero['idgenero'] == generoModificado['idgenero']:
+            genero['generoNombre'] = generoModificado['generoNombre']
+
+    with open('generos.json', 'w') as generoModificadoData:
+        json.dump(generos, generoModificadoData, indent=4)
+
     return "El genero fue editado con exito!"
+
+
 
 
 if __name__ == '__main__':

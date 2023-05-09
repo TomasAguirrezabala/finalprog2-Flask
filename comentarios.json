@@ -12,6 +12,11 @@
     {
         "comentarioID": "4",
         "usuarioID": "1",
-        "comentario": "editado otra vez"
+        "comentario": "tremenda peli"
+    },
+    {
+        "comentarioID": "5",
+        "usuarioID": "2",
+        "comentario": "buenisima peli"
     }
 ]

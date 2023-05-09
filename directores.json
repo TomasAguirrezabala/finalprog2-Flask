@@ -10,5 +10,9 @@
     {
         "director": "fulano modificado",
         "idDirector": "3"
+    },
+    {
+        "director": "Pedro",
+        "idDirector": "4"
     }
 ]
