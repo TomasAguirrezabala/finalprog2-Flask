@@ -22,5 +22,11 @@
         "usuarioID": "4",
         "contrasena": "123",
         "admin": false
+    },
+    {
+        "usuario": "usuario a modificar",
+        "usuarioID": "5",
+        "contrasena": "12345",
+        "admin": false
     }
 ]

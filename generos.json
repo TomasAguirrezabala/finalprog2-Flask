@@ -1,18 +1,22 @@
 [
-   {
-        "generoNombre":"accion",
-        "idgenero":"1"
+    {
+        "generoNombre": "accion",
+        "idgenero": "1"
     },
-   {
-        "generoNombre":"terror",
-        "idgenero":"2"
+    {
+        "generoNombre": "terror",
+        "idgenero": "2"
     },
-   {
-        "generoNombre":"comedia",
-        "idgenero":"3"
+    {
+        "generoNombre": "comedia",
+        "idgenero": "3"
     },
-   {
-        "generoNombre":"romance",
-        "idgenero":"4"
+    {
+        "generoNombre": "romance",
+        "idgenero": "4"
+    },
+    {
+        "generoNombre": "genero modificado con exito",
+        "idgenero": "5"
     }
-]    
+]
