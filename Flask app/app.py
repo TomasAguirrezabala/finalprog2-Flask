@@ -211,10 +211,8 @@ def borrarComentario(comentarioID,usuarioID):
     for comentario in comentarios:
         if comentario["usuarioID"] == usuarioID and comentario["comentarioID"] == comentarioID:
             comentarios.remove(comentario)
-            for pelicula in peliculas:                                   
-                pelicula["comentariosID"].remove(comentarioID)
-                borrado = True
-                break
+            borrado = True
+            break
 
     with open('comentarios.json', 'w') as archivoJson:
         json.dump(comentarios, archivoJson, indent=4)

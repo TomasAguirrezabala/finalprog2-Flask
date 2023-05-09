@@ -81,10 +81,12 @@
     },
     {
         "anio": "1993",
-        "comentariosID": [],
+        "comentariosID": [
+            "6"
+        ],
         "directorID": "3",
         "generoPeli": "accion",
-        "nombre": "Batman 2",
+        "nombre": "batman la venganza",
         "peliculaID": "6",
         "portada": "asdssdasd",
         "puntuacion": "",
